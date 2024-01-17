@@ -9,6 +9,9 @@ public:
 	smart_array(int size);
 	~smart_array();
 
+	smart_array(const smart_array&) = delete;
+	smart_array & operator = (const smart_array&) = delete;
+
 	void add_element(int value) {
 		if (count >= size)
 		{
@@ -21,7 +24,7 @@ public:
 	}
 
 	int get_element(int index) {
-		if (index < 0 || !(index < size)) {
+		if (index < 0 || !(index < count )) {
 			throw std::out_of_range("Индекс находится за пределами массива!");
 		}
 		else { return arr[index]; }
